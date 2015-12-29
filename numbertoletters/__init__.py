@@ -54,7 +54,7 @@ def number_to_letters(number):
     converted = ''
     decimals = 0
     if not isinstance(number, (int, long)):
-        number, decimals = str(number).split('.')
+        number, decimals = ('%.2f' % number).split('.')
     number = int(number)
     decimals = int(decimals)
     if not (0 < number < 999999999):
@@ -84,7 +84,10 @@ def number_to_letters(number):
             converted += __convertNumber(cientos)
 
     if decimals:
-        converted += 'con %s' % number_to_letters(decimals)
+        if converted.endswith('un '):
+            converted = converted.replace('un ', ' uno ')
+        decimals = number_to_letters(decimals)
+        converted += 'con %s' % decimals
     return converted
 
 
