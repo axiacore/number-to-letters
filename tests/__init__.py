@@ -19,6 +19,7 @@ class TestToWord(unittest.TestCase):
             4000000,
             500000000,
             999999998,
+            826.02
         ]
 
         results = [
@@ -32,6 +33,7 @@ class TestToWord(unittest.TestCase):
             'cuatro millones ',
             'quinientos millones ',
             'novecientos noventa y nueve millones novecientos noventa y nueve mil novecientos noventa y ocho ',
+            'ochocientos veintiseis con dos '
         ]
 
         for result, number in zip(results, numbers):

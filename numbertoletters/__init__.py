@@ -25,7 +25,7 @@ UNIDADES = (
     'veinte ',
 )
 DECENAS = (
-    'venti',
+    'veinti',
     'treinta ',
     'cuarenta ',
     'cincuenta ',
@@ -52,8 +52,11 @@ def number_to_letters(number):
     """Converts a number into string representation
     """
     converted = ''
-
-    number = int(number)    # TODO: support decimals
+    decimals = 0
+    if not isinstance(number, (int, long)):
+        number, decimals = str(number).split('.')
+    number = int(number)
+    decimals = int(decimals)
     if not (0 < number < 999999999):
         return 'No es posible convertir el numero a letras'
 
@@ -80,6 +83,8 @@ def number_to_letters(number):
         elif(int(cientos) > 0):
             converted += __convertNumber(cientos)
 
+    if decimals:
+        converted += 'con %s' % number_to_letters(decimals)
     return converted
 
 
