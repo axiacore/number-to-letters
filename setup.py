@@ -10,4 +10,5 @@ setup(
     license='MIT',
     packages=['numbertoletters'],
     zip_safe=False,
+    test_suite='tests',
 )
