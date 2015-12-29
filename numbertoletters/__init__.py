@@ -78,7 +78,7 @@ def number_to_letters(number):
         if(cientos == '001'):
             converted += 'un '
         elif(int(cientos) > 0):
-            converted += '%s ' % __convertNumber(cientos)
+            converted += __convertNumber(cientos)
 
     return converted
 
