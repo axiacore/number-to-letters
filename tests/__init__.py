@@ -40,8 +40,8 @@ class TestToWord(unittest.TestCase):
             'ochocientos veintiseis con dos ',
             'doscientos tres con un ',
             'veinti uno con diez ',
-            'zero con veinticuatro ',
-            'zero '
+            'cero con veinticuatro ',
+            'cero '
         ]
 
         for result, number in zip(results, numbers):
