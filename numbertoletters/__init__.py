@@ -83,7 +83,7 @@ def number_to_letters(number):
         elif(int(cientos) > 0):
             converted += __convertNumber(cientos)
     if not number:
-        converted = 'zero '
+        converted = 'cero '
     if decimals:
         if converted.endswith('un '):
             converted = converted.replace('un ', ' uno ')
