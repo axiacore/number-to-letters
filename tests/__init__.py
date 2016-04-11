@@ -23,7 +23,8 @@ class TestToWord(unittest.TestCase):
             203.01,
             21.1,
             0.24,
-            0.00
+            0.00,
+            -230.5
         ]
 
         results = [
@@ -41,7 +42,8 @@ class TestToWord(unittest.TestCase):
             'doscientos tres con un ',
             'veinti uno con diez ',
             'cero con veinticuatro ',
-            'cero '
+            'cero ',
+            'menos doscientos treinta con cincuenta '
         ]
 
         for result, number in zip(results, numbers):
