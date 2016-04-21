@@ -57,6 +57,9 @@ def number_to_letters(number):
         number, decimals = ('%.2f' % number).split('.')
     number = int(number)
     decimals = int(decimals)
+    negative =  number < 0
+    if negative:
+        number = abs(number)
     if not (0 <= number < 999999999):
         return 'No es posible convertir el numero a letras'
 
@@ -89,6 +92,8 @@ def number_to_letters(number):
             converted = converted.replace('un ', ' uno ')
         decimals = number_to_letters(decimals)
         converted += 'con %s' % decimals
+    if negative:
+        converted = 'menos %s' % converted
     return converted
 
 
