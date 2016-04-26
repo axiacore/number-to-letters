@@ -28,22 +28,22 @@ class TestToWord(unittest.TestCase):
         ]
 
         results = [
-            'un ',
-            'cien ',
-            'ciento diez ',
-            'ciento un ',
-            'dos mil ',
-            'ciento dos mil ',
-            'trescientos mil ',
-            'cuatro millones ',
-            'quinientos millones ',
-            'novecientos noventa y nueve millones novecientos noventa y nueve mil novecientos noventa y ocho ',
-            'ochocientos veintiseis con dos ',
-            'doscientos tres con un ',
-            'veinti uno con diez ',
-            'cero con veinticuatro ',
-            'cero ',
-            'menos doscientos treinta con cincuenta '
+            'un',
+            'cien',
+            'ciento diez',
+            'ciento un',
+            'dos mil',
+            'ciento dos mil',
+            'trescientos mil',
+            'cuatro millones',
+            'quinientos millones',
+            'novecientos noventa y nueve millones novecientos noventa y nueve mil novecientos noventa y ocho',
+            'ochocientos veintiseis con dos',
+            'doscientos tres con un',
+            'veinti uno con diez',
+            'cero con veinticuatro',
+            'cero',
+            'menos doscientos treinta con cincuenta'
         ]
 
         for result, number in zip(results, numbers):
