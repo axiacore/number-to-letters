@@ -1,15 +1,21 @@
-number-to-letters
+Number to letters
 =================
 
-A python library to convert a number to letters
+A python library to convert numbers to letters.
 
-Install it like this:
+### Quick start 
+
+Install it using [pip](https://pypi.python.org/pypi/pip):
 
     pip install numbertoletters
 
-Use it like this:
+### Usage
 
-    from numbertoletters import number_to_letters
+Import the library in your project and use it:
 
-    number_to_letters(11452915)
-    > 'once millones cuatrocientos cincuenta y dos mil novecientos quince  '
+```python
+from numbertoletters import number_to_letters
+
+number_to_letters(11452915)
+> 'once millones cuatrocientos cincuenta y dos mil novecientos quince'
+```
