@@ -57,7 +57,7 @@ def number_to_letters(number):
         number, decimals = ('%.2f' % number).split('.')
     number = int(number)
     decimals = int(decimals)
-    negative =  number < 0
+    negative = number < 0
     if negative:
         number = abs(number)
     if not (0 <= number < 999999999):
@@ -94,7 +94,7 @@ def number_to_letters(number):
         converted += 'con %s' % decimals
     if negative:
         converted = 'menos %s' % converted
-    return converted
+    return converted.strip()
 
 
 def __convertNumber(n):
@@ -105,15 +105,15 @@ def __convertNumber(n):
     if(n == '100'):
         output = 'cien '
     elif(n[0] != '0'):
-        output = CENTENAS[int(n[0])-1]
+        output = CENTENAS[int(n[0]) - 1]
 
     k = int(n[1:])
     if(k <= 20):
         output += UNIDADES[k]
     else:
         if((k > 30) & (n[2] != '0')):
-            output += '%sy %s' % (DECENAS[int(n[1])-2], UNIDADES[int(n[2])])
+            output += '%sy %s' % (DECENAS[int(n[1]) - 2], UNIDADES[int(n[2])])
         else:
-            output += '%s%s' % (DECENAS[int(n[1])-2], UNIDADES[int(n[2])])
+            output += '%s%s' % (DECENAS[int(n[1]) - 2], UNIDADES[int(n[2])])
 
     return output
