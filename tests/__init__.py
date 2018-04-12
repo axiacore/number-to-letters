@@ -7,7 +7,6 @@ from numbertoletters import number_to_letters
 class TestToWord(unittest.TestCase):
 
     def test_to_word(self):
-
         numbers = [
             1,
             100,
@@ -24,7 +23,9 @@ class TestToWord(unittest.TestCase):
             21.1,
             0.24,
             0.00,
-            -230.5
+            -230.5,
+            '1000000',
+            '150000',
         ]
 
         results = [
@@ -38,12 +39,14 @@ class TestToWord(unittest.TestCase):
             'cuatro millones',
             'quinientos millones',
             'novecientos noventa y nueve millones novecientos noventa y nueve mil novecientos noventa y ocho',
-            'ochocientos veintiseis con dos',
+            'ochocientos veintiséis con dos',
             'doscientos tres con un',
             'veinti uno con diez',
             'cero con veinticuatro',
             'cero',
             'menos doscientos treinta con cincuenta'
+            'un millón',
+            'ciento ciencuenta mil'
         ]
 
         for result, number in zip(results, numbers):

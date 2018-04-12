@@ -18,12 +18,20 @@ UNIDADES = (
     'trece ',
     'catorce ',
     'quince ',
-    'dieciseis ',
+    'dieciséis ',
     'diecisiete ',
     'dieciocho ',
     'diecinueve ',
     'veinte ',
 )
+
+UNIDADES_TILDES = {
+    'un ': 'ún ',
+    'dos ': 'dós ',
+    'tres ': 'trés ',
+    'seis ': 'séis ',
+}
+
 DECENAS = (
     'veinti',
     'treinta ',
@@ -52,9 +60,14 @@ def number_to_letters(number):
     """Converts a number into string representation
     """
     converted = ''
-    decimals = 0
-    if not isinstance(number, (int, long)):
-        number, decimals = ('%.2f' % number).split('.')
+
+    if isinstance(number, str):
+        try:
+            number = float(number)
+        except ValueError:
+            raise Exception('El valor ingresado es invalido')
+    number, decimals = ('%.2f' % number).split('.')
+
     number = int(number)
     decimals = int(decimals)
     negative = number < 0
@@ -68,52 +81,61 @@ def number_to_letters(number):
     miles = number_str[3:6]
     cientos = number_str[6:]
 
-    if(millones):
-        if(millones == '001'):
-            converted += 'un millon '
-        elif(int(millones) > 0):
-            converted += '%smillones ' % __convertNumber(millones)
+    if millones:
+        if millones == '001':
+            converted += 'un millón '
+        elif int(millones) > 0:
+            converted += '{}millones'.format(__convert_number(millones))
 
-    if(miles):
-        if(miles == '001'):
+    if miles:
+        if miles == '001':
             converted += 'mil '
-        elif(int(miles) > 0):
-            converted += '%smil ' % __convertNumber(miles)
+        elif int(miles) > 0:
+            converted += '{}mil '.format(__convert_number(miles))
 
-    if(cientos):
-        if(cientos == '001'):
+    if cientos:
+        if cientos == '001':
             converted += 'un '
-        elif(int(cientos) > 0):
-            converted += __convertNumber(cientos)
+        elif int(cientos) > 0:
+            converted += __convert_number(cientos)
     if not number:
         converted = 'cero '
+
     if decimals:
         if converted.endswith('un '):
             converted = converted.replace('un ', ' uno ')
+        elif converted.endswith('ún '):
+            converted = converted.replace('ún ', ' uno ')
         decimals = number_to_letters(decimals)
-        converted += 'con %s' % decimals
+        converted += 'con {}'.format(decimals)
     if negative:
-        converted = 'menos %s' % converted
+        converted = 'menos {}'.format(converted)
     return converted.strip()
 
 
-def __convertNumber(n):
+def __convert_number(n):
     """Max length must be 3 digits
     """
     output = ''
 
-    if(n == '100'):
+    if n == '100':
         output = 'cien '
-    elif(n[0] != '0'):
+    elif n[0] != '0':
         output = CENTENAS[int(n[0]) - 1]
 
     k = int(n[1:])
-    if(k <= 20):
+    if k <= 20:
         output += UNIDADES[k]
     else:
-        if((k > 30) & (n[2] != '0')):
-            output += '%sy %s' % (DECENAS[int(n[1]) - 2], UNIDADES[int(n[2])])
+        decenas = DECENAS[int(n[1]) - 2]
+        unidades = UNIDADES[int(n[2])]
+
+        if decenas == 'veinti' and unidades in UNIDADES_TILDES:
+            unidades = UNIDADES_TILDES[unidades]
+
+        if (k > 30) & (n[2] != '0'):
+            output += '{}y {}'.format(decenas, unidades)
         else:
-            output += '%s%s' % (DECENAS[int(n[1]) - 2], UNIDADES[int(n[2])])
+            output += '{}{}'.format(decenas, unidades)
 
     return output
