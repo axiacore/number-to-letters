@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='numbertoletters',
-    version='0.1',
+    version='0.1.2',
     description='A python library to convert a number to letters',
     url='https://github.com/AxiaCore/number-to-letters',
     author='AxiaCore',
