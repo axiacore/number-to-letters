@@ -85,7 +85,7 @@ def number_to_letters(number):
         if millones == '001':
             converted += 'un millón '
         elif int(millones) > 0:
-            converted += '{}millones'.format(__convert_number(millones))
+            converted += '{}millones '.format(__convert_number(millones))
 
     if miles:
         if miles == '001':

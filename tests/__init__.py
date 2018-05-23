@@ -24,6 +24,7 @@ class TestToWord(unittest.TestCase):
             0.24,
             0.00,
             -230.5,
+            '2959163',
             '1000000',
             '150000',
         ]
@@ -38,15 +39,18 @@ class TestToWord(unittest.TestCase):
             'trescientos mil',
             'cuatro millones',
             'quinientos millones',
-            'novecientos noventa y nueve millones novecientos noventa y nueve mil novecientos noventa y ocho',
+            'novecientos noventa y nueve millones novecientos noventa y nueve '
+            'mil novecientos noventa y ocho',
             'ochocientos veintiséis con dos',
             'doscientos tres con un',
             'veinti uno con diez',
             'cero con veinticuatro',
             'cero',
-            'menos doscientos treinta con cincuenta'
+            'menos doscientos treinta con cincuenta',
+            'dos millones novecientos cincuenta y nueve mil ciento sesenta y '
+            'tres',
             'un millón',
-            'ciento ciencuenta mil'
+            'ciento cincuenta mil',
         ]
 
         for result, number in zip(results, numbers):
